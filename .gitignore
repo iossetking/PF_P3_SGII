@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.python-version
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Trained model artifacts
+*.keras
+*.pkl
+*.h5
+
+# macOS
+.DS_Store
+
+# Project-specific exclusions
+nn_example/
