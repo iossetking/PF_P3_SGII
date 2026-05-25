@@ -21,10 +21,13 @@ def run_predictions(
     semaphore = threading.Semaphore(max_workers)
 
     def worker(label: str, features: dict) -> None:
+        t = threading.current_thread()
+        print(f"{t.name} [{label}]: Running")
         with semaphore:
             predicted = ml.predict_with_loaded(loaded, features)
         with lock:
             results[label] = predicted
+        print(f"{t.name} [{label}]: Stopped")
 
     thread_list = [
         threading.Thread(target=worker, args=(label, features))
